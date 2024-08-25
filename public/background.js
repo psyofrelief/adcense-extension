@@ -16,8 +16,6 @@ const fetchAdDomains = async () => {
       .filter((domain) => domain.startsWith("##"))
       .map((domain) => domain.substring(2));
 
-    let ruleCount = 0; // Initialize rule count
-
     const updateRulesInChunks = async (blockUrls) => {
       let ruleCount = 0; // Initialize rule count
       const chunkSize = 10000; // Chunk size for batching
@@ -43,7 +41,7 @@ const fetchAdDomains = async () => {
 
             // Create rules based on domain format
             if (domain.startsWith("||") && domain[domain.length - 1] === "^") {
-              let domainRule = domain.substring(2).slice(0, -1);
+              const domainRule = domain.substring(2).slice(0, -1);
               return {
                 id: startIndex + index + 1,
                 priority: 1,
@@ -74,12 +72,8 @@ const fetchAdDomains = async () => {
           console.error(error);
         }
       }
-<<<<<<< HEAD
     }; // Update rules and set up a daily refresh alarm
-=======
-    };
-    // Update rules and set up a daily refresh alarm
->>>>>>> refs/remotes/origin/master
+
     await updateRulesInChunks(adDomains);
     chrome.alarms.create("refreshAdDomains", { delayInMinutes: 1440 });
   } catch (error) {
