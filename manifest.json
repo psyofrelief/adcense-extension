@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "AdCense",
+  "version": "1.0",
+  "description": "Block popup ads, and ads on specified domains.",
+  "icons": {
+    "48": "public/icons/icon48.png",
+    "128": "public/icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "scripting",
+    "background",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "alarms",
+    "tabs",
+    "activeTab"
+  ],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+
+  "background": {
+    "service_worker": "public/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/", "http://*/*", "https://*/*"],
+      "js": ["public/contentScript.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "public/popup.html",
+    "default_icon": {
+      "48": "public/icons/icon48.png",
+      "128": "public/icons/icon128.png"
+    }
+  }
+}

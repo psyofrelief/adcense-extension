@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Ad Blocker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .btn-container {
+        height: 100px;
+      }
+      #popup-content {
+        display: none;
+      }
+
+      #turnoff {
+        display: none;
+      }
+    </style>
+    <link href="styles/styles.css" rel="stylesheet" />
+  </head>
+  <body class="bg-black font-assistant tracking-wider">
+    <div
+      id="popup-content"
+      class="p-5 flex flex-col space-y-4 min-w-[250px] text-center"
+    >
+      <h1 class="italic text-xl text-white font-extrabold">
+        Ad<span class="text-grey">Cense</span>
+      </h1>
+      <div
+        class="h-[1px] w-full border-t border-dotted my-6 border-darkGrey"
+      ></div>
+      <div
+        class="btn-container flex flex-col items-center justify-center space-y-2"
+      >
+        <button
+          id="block-site"
+          class="flex min-w-full items-center justify-center whitespace-nowrap rounded-md text-sm font-normal transition-colors focus-visible:outline-none border border-1 border-darkGrey disabled:pointer-events-none disabled:opacity-50 bg-black text-white shadow-sm hover:bg-primary px-5 py-3 pr-[22px]"
+        >
+          Block Site
+        </button>
+        <button
+          id="block-page"
+          class="flex min-w-full items-center justify-center whitespace-nowrap rounded-md text-sm font-normal transition-colors focus-visible:outline-none border border-1 border-darkGrey disabled:pointer-events-none disabled:opacity-50 bg-black text-white shadow-sm hover:bg-primary px-5 py-3"
+        >
+          Block Page
+        </button>
+        <button
+          id="turnoff"
+          class="flex min-w-full items-center justify-center whitespace-nowrap rounded-md text-sm font-normal transition-colors focus-visible:outline-none bordeer border-1 border-darkGrey disabled:pointer-events-none disabled:opacity-50 bg-red-700 text-white shadow-sm hover:opacity-60 px-5 py-3"
+        >
+          Turn Off
+        </button>
+      </div>
+      <div
+        class="h-[1px] w-full border-t border-dotted my-6 border-darkGrey"
+      ></div>
+      <div
+        id="status"
+        class="py-1 font-normal bg-darkGrey/30 text-sm min-w-full rounded-md text-red-700"
+      >
+        Blocking disabled
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+
+    <script src="contentScript.js"></script>
+  </body>
+</html>
