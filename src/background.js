@@ -5,7 +5,7 @@ let blockedUrls = [];
 // Fetch ad domains from the server
 const fetchAdDomains = async () => {
   try {
-    const response = await fetch("http://170.64.136.159/ad-domains");
+    const response = await fetch("http://170.64.237.140/ad-domains");
     const data = await response.json();
 
     // Filter ad domains and selectors from the fetched data
